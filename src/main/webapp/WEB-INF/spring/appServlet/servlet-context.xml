@@ -36,10 +36,10 @@
 			<beans:value>jdbc:oracle:thin:@192.168.14.31:1521:XE</beans:value>
 		</beans:property>
 		<beans:property name="username">
-			<beans:value>deposco</beans:value>
+			<beans:value>hr</beans:value>
 		</beans:property>
 		<beans:property name="password">
-			<beans:value>deposco</beans:value>
+			<beans:value>hr</beans:value>
 		</beans:property>
 	</beans:bean>
 	
