@@ -14,6 +14,10 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/js/**" location="/js/" />
+	<resources mapping="/img/**" location="/img/" />
+	<resources mapping="/editor/**" location="/editor/" />
+	<resources mapping="/css/**" location="/css/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -21,8 +25,38 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.project.finalproject" />
+	<context:component-scan base-package="com.ex.finalproject" />
 	
+	<beans:bean id="dataSource"	class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		
+		<beans:property name="driverClassName">
+			<beans:value>oracle.jdbc.driver.OracleDriver</beans:value>
+		</beans:property>
+		<beans:property name="url">
+			<beans:value>jdbc:oracle:thin:@192.168.14.31:1521:XE</beans:value>
+		</beans:property>
+		<beans:property name="username">
+			<beans:value>deposco</beans:value>
+		</beans:property>
+		<beans:property name="password">
+			<beans:value>deposco</beans:value>
+		</beans:property>
+	</beans:bean>
 	
+	<beans:bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<beans:property name="dataSource" ref="dataSource" />
+	</beans:bean>
+	
+	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="typeAliasesPackage" value="mybatis" />
+	</beans:bean>
+	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg name="sqlSessionFactory" 
+		ref="sqlSessionFactory" />
+	</beans:bean>
+	
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></beans:bean>
 	
 </beans:beans>
