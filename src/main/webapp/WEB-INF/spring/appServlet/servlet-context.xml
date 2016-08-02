@@ -33,13 +33,13 @@
 			<beans:value>oracle.jdbc.driver.OracleDriver</beans:value>
 		</beans:property>
 		<beans:property name="url">
-			<beans:value>jdbc:oracle:thin:@192.168.14.31:1521:XE</beans:value>
+			<beans:value>jdbc:oracle:thin:@192.168.14.35:1521:XE</beans:value>
 		</beans:property>
 		<beans:property name="username">
-			<beans:value>hr</beans:value>
+			<beans:value>honeybee</beans:value>
 		</beans:property>
 		<beans:property name="password">
-			<beans:value>hr</beans:value>
+			<beans:value>honeybee</beans:value>
 		</beans:property>
 	</beans:bean>
 	
