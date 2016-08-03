@@ -9,7 +9,7 @@ public class MemberDTO {
 	private String birth;
 	private String interest;
 	private String location;
-	private String post;
+	private int post;
 	private String address;
 	private String sex;
 	private String phone;
@@ -70,12 +70,15 @@ public class MemberDTO {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public String getPost() {
+	
+	public int getPost() {
 		return post;
 	}
-	public void setPost(String post) {
+
+	public void setPost(int post) {
 		this.post = post;
 	}
+
 	public String getAddress() {
 		return address;
 	}

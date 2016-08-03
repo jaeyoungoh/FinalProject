@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	 
+<mapper namespace="com.ex.finalproject.Member.MemMapper">
+
+	<resultMap type="com.ex.finalproject.Member.MemberDTO" id="MemResultMap">
+		<result column="id" property="id" />
+		<result column="pwd" property="pwd" />
+		<result column="name" property="name" />
+		<result column="email" property="email" />
+		<result column="birth" property="birth" />
+		<result column="interest" property="interest" />
+		<result column="location" property="location" />
+		<result column="post" property="post" />
+		<result column="address" property="address" />
+		<result column="sex" property="sex" />
+		<result column="phone" property="phone" />
+	</resultMap>
+	<insert id="memAdd" parameterType="com.ex.finalproject.Member.MemberDTO">
+		INSERT INTO MEMBER(MEMBER_ID,MEMBER_PWD,MEMBER_NAME,MEMBER_EMAIL, MEMBER_PHONE, MEMBER_INTEREST, MEMBER_BIRTH,MEMBER_SEX,MEMBER_LOCATION,MEMBER_POST,MEMBER_ADDRESS)
+		values(#{id, jdbcType=VARCHAR},#{pwd, jdbcType=VARCHAR},#{name, jdbcType=VARCHAR},#{email, jdbcType=VARCHAR},#{phone, jdbcType=VARCHAR}, #{interest, jdbcType=VARCHAR},#{birth, jdbcType=DATE},#{sex, jdbcType=VARCHAR},#{location, jdbcType=VARCHAR},#{post, jdbcType=NUMERIC},#{address, jdbcType=VARCHAR})
+	</insert>
+
+</mapper>

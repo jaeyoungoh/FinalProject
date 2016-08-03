@@ -11,18 +11,19 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MemberController {
 	
-//	@Resource
-//	private MemService MemService;
+	@Resource
+	private MemService memService;
+	
+	public void setMemService(MemService memService) {
+		this.memService = memService;
+	}
 	
 	@RequestMapping(value="/join.do")
 	public ModelAndView addMember(MemberDTO dto){
-//		public ModelAndView addMember(HttpServletRequest request){
-		
-//		System.out.println(request.getParameter("id"));
-//		System.out.println(request.getParameter("pwd"));
-//		System.out.println(request.getParameter("name"));
-//		System.out.println(request.getParameter("email"));
 		System.out.println(dto.toString());
+		memService.memAdd(dto);
+		System.out.println("DB 추가 완료");
+		
 		return null;
 	}
 	@RequestMapping(value="/update.do")

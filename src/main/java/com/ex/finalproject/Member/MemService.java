@@ -9,7 +9,7 @@ public interface MemService {
 	public void memLogin(String id, String pwd);
 	public boolean idChk(String id);
 	public List<MemberDTO> memAllSelect();
-	public MemberDTO memAdd(MemberDTO dto);
+	public void memAdd(MemberDTO dto);
 	
 
 }
