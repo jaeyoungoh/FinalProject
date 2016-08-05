@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	 
+<mapper namespace="com.ex.finalproject.Group.GroupMapper">
+
+	<resultMap type="com.ex.finalproject.Group.GroupDTO" id="GroupResultMap">
+		<result column="gathering_num" property="gathering_num" />
+		<result column="gathering_title" property="gathering_title" />
+		<result column="gathering_content" property="gathering_content" />
+		<result column="gathering_category" property="gathering_category" />
+		<result column="gathering_location" property="gathering_location" />
+		<result column="gathering_max_cnt" property="gathering_max_cnt" />
+		<result column="gathering_max_age" property="gathering_max_age" />
+		<result column="gathering_max_sex" property="gathering_max_sex" />
+		<result column="gathering_type" property="gathering_type" />
+		<result column="gathering_hashtag" property="gathering_hashtag" />
+		<result column="gathering_rating" property="gathering_rating" />
+		<result column="gathering_photo" property="gathering_photo" />
+		<result column="gathering_gallery" property="gathering_gallery" />
+	</resultMap>
+	
+	<insert id="groupAdd" parameterType="com.ex.finalproject.Group.GroupDTO">
+	
+		INSERT INTO GATHERING (GATHERING_NUM, GATHERING_TITLE, GATHERING_CONTENT, GATHERING_CATEGORY, GATHERING_LOCATION, GATHERING_MAX_CNT, GATHERING_MAX_AGE, GATHERING_MAX_SEX, GATHERING_TYPE, GATHERING_HASHTAG, GATHERING_RATING, GATHERING_PHOTO, GATHERING_GALLERY)
+    	 VALUES (#{gathering_num}, #{gathering_title}, #{gathering_content}, #{gathering_category}, #{gathering_location}, #{gathering_max_cnt}, #{gathering_max_age}, #{gathering_max_age}, #{gathering_max_sex}, #{gathering_type}, #{gathering_hashtag}, #{gathering_rating} ,#{gathering_photo} ,#{gathering_gallery})
+	
+	</insert>
+	
+
+</mapper>
