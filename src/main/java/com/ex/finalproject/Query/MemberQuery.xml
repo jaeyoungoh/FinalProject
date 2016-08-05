@@ -22,5 +22,12 @@
 		INSERT INTO MEMBER(MEMBER_ID,MEMBER_PWD,MEMBER_NAME,MEMBER_EMAIL, MEMBER_PHONE, MEMBER_INTEREST, MEMBER_BIRTH,MEMBER_SEX,MEMBER_LOCATION,MEMBER_POST,MEMBER_ADDRESS)
 		values(#{id, jdbcType=VARCHAR},#{pwd, jdbcType=VARCHAR},#{name, jdbcType=VARCHAR},#{email, jdbcType=VARCHAR},#{phone, jdbcType=VARCHAR}, #{interest, jdbcType=VARCHAR},#{birth, jdbcType=DATE},#{sex, jdbcType=VARCHAR},#{location, jdbcType=VARCHAR},#{post, jdbcType=NUMERIC},#{address, jdbcType=VARCHAR})
 	</insert>
+	
+	<select id="memLogin" parameterType="String" resultType="com.ex.finalproject.Member.MemberDTO">
+		select * from MEMBER where MEMBER_ID = #{id} and MEMBER_PWD = #{pwd}
+	</select>
+	<select id="idChk" parameterType="String" resultType="com.ex.finalproject.Member.MemberDTO">
+		select * from MEMBER where MEMBER_ID = #{id}
+	</select>
 
 </mapper>

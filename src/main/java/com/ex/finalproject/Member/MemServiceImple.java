@@ -29,11 +29,6 @@ public class MemServiceImple implements MemService {
 		memMapper.memUpdae(dto);		
 	}
 
-	@Override
-	public void memLogin(String id, String pwd) {
-		MemMapper memMapper = sqlsession.getMapper(MemMapper.class);
-		memMapper.memLogin(id, pwd);
-	}
 
 	@Override
 	public boolean idChk(String id) {
@@ -51,6 +46,14 @@ public class MemServiceImple implements MemService {
 	public void memAdd(MemberDTO dto) {
 		MemMapper memMapper = sqlsession.getMapper(MemMapper.class);
 		memMapper.memAdd(dto);
+	}
+
+	
+	//수정부분
+	@Override
+	public MemberDTO memInfo(String id) {
+		MemMapper memMapper = sqlsession.getMapper(MemMapper.class);
+		return memMapper.memInfo(id);
 	}
 	
 	
