@@ -6,25 +6,25 @@
 <mapper namespace="com.ex.finalproject.Member.MemMapper">
 
 	<resultMap type="com.ex.finalproject.Member.MemberDTO" id="MemResultMap">
-		<result column="id" property="id" />
-		<result column="pwd" property="pwd" />
-		<result column="name" property="name" />
-		<result column="email" property="email" />
-		<result column="birth" property="birth" />
-		<result column="interest" property="interest" />
-		<result column="location" property="location" />
-		<result column="post" property="post" />
-		<result column="address" property="address" />
-		<result column="sex" property="sex" />
-		<result column="phone" property="phone" />
+		<result column="MEMBER_ID" property="id" />
+		<result column="MEMBER_PWD" property="pwd" />
+		<result column="MEMBER_NAME" property="name" />
+		<result column="MEMBER_EMAIL" property="email" />
+		<result column="MEMBER_BIRTH" property="birth" />
+		<result column="MEMBER_INTEREST" property="interest" />
+		<result column="MEMBER_LOCATION" property="location" />
+		<result column="MEMBER_POST" property="post" />
+		<result column="MEMBER_ADDRESS" property="address" />
+		<result column="MEMBER_SEX" property="sex" />
+		<result column="MEMBER_PHONE" property="phone" />
 	</resultMap>
 	<insert id="memAdd" parameterType="com.ex.finalproject.Member.MemberDTO">
 		INSERT INTO MEMBER(MEMBER_ID,MEMBER_PWD,MEMBER_NAME,MEMBER_EMAIL, MEMBER_PHONE, MEMBER_INTEREST, MEMBER_BIRTH,MEMBER_SEX,MEMBER_LOCATION,MEMBER_POST,MEMBER_ADDRESS)
 		values(#{id, jdbcType=VARCHAR},#{pwd, jdbcType=VARCHAR},#{name, jdbcType=VARCHAR},#{email, jdbcType=VARCHAR},#{phone, jdbcType=VARCHAR}, #{interest, jdbcType=VARCHAR},#{birth, jdbcType=DATE},#{sex, jdbcType=VARCHAR},#{location, jdbcType=VARCHAR},#{post, jdbcType=NUMERIC},#{address, jdbcType=VARCHAR})
 	</insert>
 	
-	<select id="memLogin" parameterType="String" resultType="com.ex.finalproject.Member.MemberDTO">
-		select * from MEMBER where MEMBER_ID = #{id} and MEMBER_PWD = #{pwd}
+	<select id="memInfo" parameterType="String" resultType="com.ex.finalproject.Member.MemberDTO" resultMap="MemResultMap">
+		select * from MEMBER where MEMBER_ID = #{id}
 	</select>
 	<select id="idChk" parameterType="String" resultType="com.ex.finalproject.Member.MemberDTO">
 		select * from MEMBER where MEMBER_ID = #{id}
