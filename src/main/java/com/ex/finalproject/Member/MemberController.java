@@ -43,14 +43,24 @@ public class MemberController {
 	@RequestMapping(value="/login.do")
 	public ModelAndView loginMember(String id, String pwd, HttpServletResponse response){
 		PrintWriter out;
+		System.out.println("입력된 아이디"+id);
+		System.out.println("입력된 비밀번호"+pwd);
+		
 		try {
 			out = response.getWriter();
-			
+			System.out.println(("검색된 멤버 정보"+ memService.memInfo(id)).toString());
+			if((memService.memInfo(id))!=null)
 			if((memService.memInfo(id)).getPwd().equals(pwd)){
+			System.out.println("아이디"+id);
+			System.out.println("비밀번호"+pwd);
 				//로그인 성공
 				out.print("1");
 			} else {
 				//로그인 실패
+				out.print("2");
+			}
+			else{
+				//null 일때 로그인 실패
 				out.print("2");
 			}
 		} catch (IOException e) {
