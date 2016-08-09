@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	 
+<mapper namespace="com.ex.finalproject.Board.BoardMapper">
+
+	<resultMap type="com.ex.finalproject.Board.BoardDTO" id="BoardResultMap">
+		<result column="board_num" property="board_num" />
+		<result column="board_title" property="board_title" />
+		<result column="board_content" property="board_content" />
+		<result column="board_category" property="board_category" />
+		<result column="board_location" property="board_location" />
+		<result column="board_max_cnt" property="board_max_cnt" />
+		<result column="board_max_age" property="board_max_age" />
+		<result column="board_max_sex" property="board_max_sex" />
+		<result column="board_type" property="board_type" />
+		<result column="board_hashtag" property="board_hashtag" />
+		<result column="board_rating" property="board_rating" />
+		<result column="board_photo" property="board_photo" />
+		<result column="board_gallery" property="board_gallery" />
+	</resultMap>
+	
+	<insert id="boardAdd" parameterType="com.ex.finalproject.Board.BoardDTO">
+	
+		INSERT INTO GATHERING_BD (GATHERING_BD_NUM, GATHERING_BD_TITLE, GATHERING_BD_CONTENT, GATHERING_BD_STATE, GATHERING_BD_MAX_CNT, GATHERING_MAX_AGE, GATHERING_MAX_SEX, GATHERING_TYPE, GATHERING_HASHTAG, GATHERING_RATING, GATHERING_PHOTO, GATHERING_GALLERY)
+    	 VALUES (#{board_num}, #{board_title}, #{board_content}, #{board_category}, #{board_location}, #{board_max_cnt}, #{board_max_age}, #{board_max_age}, #{board_max_sex}, #{board_type}, #{board_hashtag}, #{board_rating} ,#{board_photo} ,#{board_gallery})
+	
+	</insert>
+	
+
+</mapper>
