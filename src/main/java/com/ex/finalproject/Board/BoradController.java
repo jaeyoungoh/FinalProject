@@ -18,9 +18,16 @@ public class BoradController {
 	}
 	
 	@RequestMapping(value="/addBoard.do")
-	public void addGroup(BoardDTO boardDto){
+	public void addBoard(BoardDTO boardDto){
 		boardDto.setBoard_num(1);
 		boardDto.setBoard_title("제목1");
 		boardService.boardAdd(boardDto);
+	}
+	
+	@RequestMapping(value="/updateBoard.do")
+	public void updateBoard(BoardDTO boardDto){
+		boardDto.setBoard_num(1);
+		boardDto.setBoard_title("제목1");
+		boardService.boardUpdate(boardDto);
 	}
 }

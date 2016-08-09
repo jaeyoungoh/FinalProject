@@ -25,5 +25,10 @@
 	
 	</insert>
 	
+	<update id="boardUpdate" parameterType="com.ex.finalproject.Board.BoardDTO">
+		update set
+	
+	</update>
+	
 
 </mapper>

@@ -21,6 +21,12 @@ public class BoardServiceImple implements BoardService {
 		BoardMapper boardMapper = sqlsession.getMapper(BoardMapper.class);
 		boardMapper.boardAdd(boardDto);
 	}
+
+	@Override
+	public void boardUpdate(BoardDTO boardDto) {
+		BoardMapper boardMapper = sqlsession.getMapper(BoardMapper.class);
+		boardMapper.boardAdd(boardDto);
+	}
 	
 
 }
