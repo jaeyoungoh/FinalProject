@@ -18,8 +18,9 @@ public class BoradController {
 	}
 	
 	@RequestMapping(value="/addBoard.do")
-	public ModelAndView addGroup(BoardDTO boardDto){
+	public void addGroup(BoardDTO boardDto){
+		boardDto.setBoard_num(1);
+		boardDto.setBoard_title("제목1");
 		boardService.boardAdd(boardDto);
-		return null;
 	}
 }

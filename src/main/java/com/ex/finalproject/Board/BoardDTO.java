@@ -4,30 +4,32 @@ public class BoardDTO {
 	private int board_num; // 게시물 번호 : 시퀀스 이용해서 DB에 넣을 거
 	private String board_title; // 게시물 제목
 	private String board_content; // 게시물 내용 
-	private String board_state; // 게시물 분류
+	private String board_category; // 게시물 분류
 	private String member_id; //  작성 회원 아이디
 	private int gathering_num; // 모임 번호 
 	private String board_date; // 게시물 작성일
 	private String board_picture; // 그림 저장된 URL 주소
 	
 	public BoardDTO(){}
-	
-	public BoardDTO(int board_num, String board_title, String board_content, String board_state, String member_id,
+
+	public BoardDTO(int board_num, String board_title, String board_content, String board_category, String member_id,
 			int gathering_num, String board_date, String board_picture) {
 		this.board_num = board_num;
 		this.board_title = board_title;
 		this.board_content = board_content;
-		this.board_state = board_state;
+		this.board_category = board_category;
 		this.member_id = member_id;
 		this.gathering_num = gathering_num;
 		this.board_date = board_date;
 		this.board_picture = board_picture;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "BoardDTO [board_num=" + board_num + ", board_title=" + board_title + ", board_content=" + board_content
-				+ ", board_state=" + board_state + ", member_id=" + member_id + ", gathering_num=" + gathering_num
+				+ ", board_state=" + board_category + ", member_id=" + member_id + ", gathering_num=" + gathering_num
 				+ ", board_date=" + board_date + ", board_picture=" + board_picture + "]";
 	}
 
@@ -55,12 +57,12 @@ public class BoardDTO {
 		this.board_content = board_content;
 	}
 
-	public String getBoard_state() {
-		return board_state;
+	public String getBoard_category() {
+		return board_category;
 	}
 
-	public void setBoard_state(String board_state) {
-		this.board_state = board_state;
+	public void setBoard_category(String board_category) {
+		this.board_category = board_category;
 	}
 
 	public String getMember_id() {
