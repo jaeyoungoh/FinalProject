@@ -19,8 +19,8 @@
 		<result column="MEMBER_PHONE" property="phone" />
 	</resultMap>
 	<insert id="memAdd" parameterType="com.ex.finalproject.Member.MemberDTO">
-		INSERT INTO MEMBER(MEMBER_ID,MEMBER_PWD,MEMBER_NAME,MEMBER_EMAIL, MEMBER_PHONE, MEMBER_INTEREST, MEMBER_BIRTH,MEMBER_SEX,MEMBER_LOCATION,MEMBER_POST,MEMBER_ADDRESS)
-		values(#{id, jdbcType=VARCHAR},#{pwd, jdbcType=VARCHAR},#{name, jdbcType=VARCHAR},#{email, jdbcType=VARCHAR},#{phone, jdbcType=VARCHAR}, #{interest, jdbcType=VARCHAR},#{birth, jdbcType=DATE},#{sex, jdbcType=VARCHAR},#{location, jdbcType=VARCHAR},#{post, jdbcType=NUMERIC},#{address, jdbcType=VARCHAR})
+		INSERT INTO MEMBER(MEMBER_ID,MEMBER_PWD,MEMBER_NAME,MEMBER_EMAIL, MEMBER_PHONE, MEMBER_INTEREST, MEMBER_BIRTH,MEMBER_SEX,MEMBER_LOCATION,MEMBER_POST,MEMBER_ADDRESS, MEMBER_STATE)
+		values(#{id, jdbcType=VARCHAR},#{pwd, jdbcType=VARCHAR},#{name, jdbcType=VARCHAR},#{email, jdbcType=VARCHAR},#{phone, jdbcType=VARCHAR}, #{interest, jdbcType=VARCHAR},#{birth, jdbcType=DATE},#{sex, jdbcType=VARCHAR},#{location, jdbcType=VARCHAR},#{post, jdbcType=NUMERIC},#{address, jdbcType=VARCHAR}, 1)
 	</insert>
 	
 	<select id="memInfo" parameterType="String" resultType="com.ex.finalproject.Member.MemberDTO" resultMap="MemResultMap">

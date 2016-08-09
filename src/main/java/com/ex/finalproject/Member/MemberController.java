@@ -60,7 +60,7 @@ public class MemberController {
 				out.print("2");
 			}
 			else{
-				//null 일때 로그인 실패
+				//null 없는 것 일때 로그인 실패
 				out.print("2");
 			}
 		} catch (IOException e) {
