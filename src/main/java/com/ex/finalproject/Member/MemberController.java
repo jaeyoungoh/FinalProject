@@ -34,6 +34,13 @@ public class MemberController {
 		
 		return null;
 	}
+	@RequestMapping(value="/info.do")
+	public ModelAndView infoMember(String id){
+		ModelAndView mov = new ModelAndView("mem/info");
+		MemberDTO dto = memService.memInfo(id);
+		mov.addObject("dto",dto);
+		return mov;
+	}
 	@RequestMapping(value="/delete.do")
 	public ModelAndView deleteMember(String id, String pwd){
 		
@@ -41,7 +48,7 @@ public class MemberController {
 		return null;
 	}
 	@RequestMapping(value="/login.do")
-	public ModelAndView loginMember(String id, String pwd, HttpServletResponse response){
+	public void loginMember(String id, String pwd, HttpServletResponse response){
 		PrintWriter out;
 		System.out.println("입력된 아이디"+id);
 		System.out.println("입력된 비밀번호"+pwd);
@@ -66,12 +73,5 @@ public class MemberController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return null;
-	}
-	@RequestMapping(value="/logout.do")
-	public ModelAndView logoutMember(String id){
-		
-		
-		return null;
 	}
 }
