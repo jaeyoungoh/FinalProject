@@ -26,8 +26,5 @@
 	<select id="memInfo" parameterType="String" resultType="com.ex.finalproject.Member.MemberDTO" resultMap="MemResultMap">
 		select * from MEMBER where MEMBER_ID = #{id}
 	</select>
-	<select id="idChk" parameterType="String" resultType="com.ex.finalproject.Member.MemberDTO">
-		select * from MEMBER where MEMBER_ID = #{id}
-	</select>
 
 </mapper>

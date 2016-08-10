@@ -29,12 +29,7 @@ public class MemServiceImple implements MemService {
 		memMapper.memUpdae(dto);		
 	}
 
-
-	@Override
-	public boolean idChk(String id) {
-		MemMapper memMapper = sqlsession.getMapper(MemMapper.class);
-		return memMapper.idChk(id);
-	}
+	
 
 	@Override
 	public List<MemberDTO> memAllSelect() {

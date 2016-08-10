@@ -52,8 +52,6 @@ public class MemberController {
 	@RequestMapping(value="/login.do")
 	public void loginMember(String id, String pwd, HttpServletResponse response){
 		PrintWriter out;
-		System.out.println("입력된 아이디"+id);
-		System.out.println("입력된 비밀번호"+pwd);
 		
 		try {
 			out = response.getWriter();
