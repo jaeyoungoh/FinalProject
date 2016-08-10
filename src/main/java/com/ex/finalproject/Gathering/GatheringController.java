@@ -1,5 +1,7 @@
 package com.ex.finalproject.Gathering;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -25,5 +27,12 @@ public class GatheringController {
 		gathering.setGathering_content("주말 농구 같이 하실분~");
 		gatheringService.gatheringAdd(gathering);
 		return null;
+	}
+	@RequestMapping(value="/listGathering.do")
+	public ModelAndView listGroup(){
+		ModelAndView mov = new ModelAndView("gathering/gatheringList");
+		List<GatheringDTO> list =gatheringService.gatheringList();
+		mov.addObject("list",list);
+		return mov;
 	}
 }

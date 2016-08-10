@@ -1,6 +1,8 @@
 package com.ex.finalproject.Gathering;
 
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
@@ -20,6 +22,12 @@ public class GatheringServiceImple implements GatheringService {
 	public void gatheringAdd(GatheringDTO gathering) {
 		GatheringMapper gatheringMapper = sqlsession.getMapper(GatheringMapper.class);
 		gatheringMapper.gatheringAdd(gathering);
+	}
+
+	@Override
+	public List<GatheringDTO> gatheringList() {
+		GatheringMapper gatheringMapper = sqlsession.getMapper(GatheringMapper.class);
+		return gatheringMapper.gatheringList();
 	}
 	
 

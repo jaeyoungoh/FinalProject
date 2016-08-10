@@ -28,5 +28,9 @@
 	
 	</insert>
 	
+	<select id="gatheringList" resultType="com.ex.finalproject.Gathering.GatheringDTO" resultMap="GatheringResultMap">
+		select * from GATHERING
+	</select>
+	
 
 </mapper>
