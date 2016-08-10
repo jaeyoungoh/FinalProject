@@ -21,9 +21,12 @@ public class GroupController {
 		this.groupService = groupService;
 	}
 	
-	
 	@RequestMapping(value="/addGroup.do")
 	public ModelAndView addGroup(GroupDTO group){
+		
+		group.setGathering_num(1);
+		group.setGathering_title("모임 A");
+		group.setGathering_content("주말 농구 같이 하실분~");
 		groupService.groupAdd(group);
 		return null;
 	}

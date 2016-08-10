@@ -23,11 +23,13 @@ public class MemberController {
 	
 	@RequestMapping(value="/join.do")
 	public ModelAndView addMember(MemberDTO dto){
+		ModelAndView mov = new ModelAndView("mem/joinConfirm");
 		System.out.println(dto.toString());
 		memService.memAdd(dto);
 		System.out.println("DB 추가 완료");
-		return null;
+		return mov;
 	}
+	
 	@RequestMapping(value="/update.do")
 	public ModelAndView updateMember(MemberDTO dto){
 		
