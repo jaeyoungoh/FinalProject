@@ -16,18 +16,16 @@
 		<result column="GATHERING_BD_PICTURE" property="board_picture" />
 	</resultMap>
 	
-	
-	
 	<insert id="boardAdd" parameterType="com.ex.finalproject.Board.BoardDTO">
-	
 		INSERT INTO GATHERING_BD (GATHERING_BD_NUM, GATHERING_BD_TITLE, GATHERING_BD_CONTENT, GATHERING_BD_CATEGORY,MEMBER_ID,GATHERING_NUM,GATHERING_BD_DATE,GATHERING_BD_PICTURE )
     	 VALUES (#{board_num, jdbcType=INTEGER}, #{board_title, jdbcType=VARCHAR}, #{board_content, jdbcType=VARCHAR}, #{board_category, jdbcType=VARCHAR}, #{member_id, jdbcType=VARCHAR}, #{gathering_num, jdbcType=INTEGER}, #{board_date, jdbcType=DATE},#{board_picture, jdbcType=VARCHAR} )
-	
 	</insert>
 	
-	<update id="boardUpdate" parameterType="com.ex.finalproject.Board.BoardDTO">
-		update set
+	<select id="boardList" parameterType="com.ex.finalproject.Board.BoardDTO" resultMap="BoardResultMap">
+			select * from GATHERING_BD
+	</select>
 	
+	<update id="boardUpdate" parameterType="com.ex.finalproject.Board.BoardDTO">
 	</update>
 	
 

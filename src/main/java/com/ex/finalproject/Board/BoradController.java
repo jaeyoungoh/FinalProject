@@ -26,8 +26,8 @@ public class BoradController {
 	
 	@RequestMapping(value="/updateBoard.do")
 	public void updateBoard(BoardDTO boardDto){
-		boardDto.setBoard_num(1);
-		boardDto.setBoard_title("제목1");
+		boardDto.setBoard_num(2);
+		boardDto.setBoard_title("제목1 수정");
 		boardService.boardUpdate(boardDto);
 	}
 }
