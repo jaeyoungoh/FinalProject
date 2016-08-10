@@ -17,7 +17,7 @@ public class GatheringController {
 		this.gatheringService = gatheringService;
 	}
 	
-	@RequestMapping(value="/addGroup.do")
+	@RequestMapping(value="/addGathering.do")
 	public ModelAndView addGroup(GatheringDTO gathering){
 		
 		gathering.setGathering_num(1);
