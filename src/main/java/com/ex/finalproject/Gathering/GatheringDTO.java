@@ -1,6 +1,6 @@
-package com.ex.finalproject.Group;
+package com.ex.finalproject.Gathering;
 
-public class GroupDTO {
+public class GatheringDTO {
 	private int gathering_num;
 	private String gathering_title;
 	private String gathering_content;
@@ -16,8 +16,8 @@ public class GroupDTO {
 	private String gathering_gallery;
 	
 	
-	public GroupDTO(){};
-	public GroupDTO(int gathering_num, String gathering_title, String gathering_content, String gathering_category,
+	public GatheringDTO(){};
+	public GatheringDTO(int gathering_num, String gathering_title, String gathering_content, String gathering_category,
 			String gathering_location, int gathering_max_cnt, String gathering_max_age, String gathering_max_sex,
 			String gathering_type, String gathering_hashtag, int gathering_rating, String gathering_photo,
 			String gathering_gallery) {
@@ -115,7 +115,7 @@ public class GroupDTO {
 	}
 	@Override
 	public String toString() {
-		return "GroupDTO [gathering_num=" + gathering_num + ", gathering_title=" + gathering_title
+		return "GatheringDTO [gathering_num=" + gathering_num + ", gathering_title=" + gathering_title
 				+ ", gathering_content=" + gathering_content + ", gathering_category=" + gathering_category
 				+ ", gathering_location=" + gathering_location + ", gathering_max_cnt=" + gathering_max_cnt
 				+ ", gathering_max_age=" + gathering_max_age + ", gathering_max_sex=" + gathering_max_sex
@@ -123,6 +123,8 @@ public class GroupDTO {
 				+ ", gathering_rating=" + gathering_rating + ", gathering_photo=" + gathering_photo
 				+ ", gathering_gallery=" + gathering_gallery + "]";
 	}
+	
+	
 	
 	
 	

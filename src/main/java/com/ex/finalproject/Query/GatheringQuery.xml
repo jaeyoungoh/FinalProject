@@ -3,9 +3,9 @@
 	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	 
-<mapper namespace="com.ex.finalproject.Group.GroupMapper">
+<mapper namespace="com.ex.finalproject.Gathering.GatheringMapper">
 
-	<resultMap type="com.ex.finalproject.Group.GroupDTO" id="GroupResultMap">
+	<resultMap type="com.ex.finalproject.Gathering.GatheringDTO" id="GatheringResultMap">
 		<result column="gathering_num" property="gathering_num" />
 		<result column="gathering_title" property="gathering_title" />
 		<result column="gathering_content" property="gathering_content" />
@@ -21,7 +21,7 @@
 		<result column="gathering_gallery" property="gathering_gallery" />
 	</resultMap>
 	
-	<insert id="groupAdd" parameterType="com.ex.finalproject.Group.GroupDTO">
+	<insert id="gatheringAdd" parameterType="com.ex.finalproject.Gathering.GatheringDTO">
 	
 		INSERT INTO GATHERING(GATHERING_NUM, GATHERING_TITLE, GATHERING_CONTENT, GATHERING_CATEGORY, GATHERING_LOCATION, GATHERING_MAX_CNT, GATHERING_MAX_AGE, GATHERING_MAX_SEX, GATHERING_TYPE, GATHERING_HASHTAG, GATHERING_RATING, GATHERING_PHOTO, GATHERING_GALLERY)
     	 VALUES(#{gathering_num, jdbcType=INTEGER}, #{gathering_title, jdbcType=VARCHAR}, #{gathering_content, jdbcType=VARCHAR}, #{gathering_category, jdbcType=VARCHAR}, #{gathering_location, jdbcType=VARCHAR}, #{gathering_max_cnt, jdbcType=INTEGER}, #{gathering_max_age, jdbcType=INTEGER}, #{gathering_max_sex, jdbcType=VARCHAR}, #{gathering_type, jdbcType=VARCHAR}, #{gathering_hashtag, jdbcType=VARCHAR}, #{gathering_rating, jdbcType=INTEGER} ,#{gathering_photo, jdbcType=VARCHAR} ,#{gathering_gallery, jdbcType=VARCHAR})
