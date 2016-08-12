@@ -26,5 +26,8 @@
 	<select id="memInfo" parameterType="String" resultType="com.ex.finalproject.Member.MemberDTO" resultMap="MemResultMap">
 		select * from MEMBER where MEMBER_ID = #{id}
 	</select>
+	<update id="memUpdae" parameterType="com.ex.finalproject.Member.MemberDTO">
+		update MEMBER set MEMBER_ID=#{id, jdbcType=VARCHAR},MEMBER_PWD=#{pwd, jdbcType=VARCHAR},MEMBER_NAME=#{name, jdbcType=VARCHAR},MEMBER_EMAIL=#{email, jdbcType=VARCHAR}
+	</update>
 
 </mapper>

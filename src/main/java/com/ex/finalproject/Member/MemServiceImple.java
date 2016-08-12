@@ -29,8 +29,6 @@ public class MemServiceImple implements MemService {
 		memMapper.memUpdae(dto);		
 	}
 
-	
-
 	@Override
 	public List<MemberDTO> memAllSelect() {
 		MemMapper memMapper = sqlsession.getMapper(MemMapper.class);

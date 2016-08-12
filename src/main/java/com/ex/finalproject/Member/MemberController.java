@@ -37,7 +37,16 @@ public class MemberController {
 	
 	@RequestMapping(value="/update.do")
 	public ModelAndView updateMember(MemberDTO dto){
-		return null;
+		ModelAndView mov = new ModelAndView("mem/Confirm");
+		System.out.println(dto.toString());
+		try{
+			memService.memUpdae(dto);
+			mov.addObject("result","true");
+		}catch(Exception e){
+			mov.addObject("result", "false");
+		}
+		System.out.println("DB 추가 완료");
+		return mov;
 	}
 	@RequestMapping(value="/info.do")
 	public ModelAndView infoMember(String id){
@@ -48,8 +57,6 @@ public class MemberController {
 	}
 	@RequestMapping(value="/delete.do")
 	public ModelAndView deleteMember(String id, String pwd){
-		
-		
 		return null;
 	}
 	@RequestMapping(value="/login.do")
