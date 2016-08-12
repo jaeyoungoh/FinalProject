@@ -23,17 +23,20 @@ public class MemberController {
 	
 	@RequestMapping(value="/join.do")
 	public ModelAndView addMember(MemberDTO dto){
-		ModelAndView mov = new ModelAndView("mem/joinConfirm");
+		ModelAndView mov = new ModelAndView("mem/Confirm");
 		System.out.println(dto.toString());
-		memService.memAdd(dto);
+		try{
+			memService.memAdd(dto);
+			mov.addObject("result","true");
+		}catch(Exception e){
+			mov.addObject("result", "false");
+		}
 		System.out.println("DB 추가 완료");
 		return mov;
 	}
 	
 	@RequestMapping(value="/update.do")
 	public ModelAndView updateMember(MemberDTO dto){
-		
-		
 		return null;
 	}
 	@RequestMapping(value="/info.do")
@@ -50,28 +53,27 @@ public class MemberController {
 		return null;
 	}
 	@RequestMapping(value="/login.do")
-	public void loginMember(String id, String pwd, HttpServletResponse response){
-		PrintWriter out;
+	public ModelAndView loginMember(String id, String pwd, HttpServletResponse response){
+		ModelAndView mov = new ModelAndView("mem/Confirm");
 		
 		try {
-			out = response.getWriter();
 			System.out.println(("검색된 멤버 정보"+ memService.memInfo(id)).toString());
 			if((memService.memInfo(id))!=null)
 			if((memService.memInfo(id)).getPwd().equals(pwd)){
-			System.out.println("아이디"+id);
-			System.out.println("비밀번호"+pwd);
 				//로그인 성공
-				out.print("1");
+				mov.addObject("result","true");
 			} else {
+				mov.addObject("result","false");
 				//로그인 실패
-				out.print("2");
 			}
 			else{
+				mov.addObject("result","false");
 				//null 없는 것 일때 로그인 실패
-				out.print("2");
 			}
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		return mov;
 	}
 }
