@@ -1,8 +1,5 @@
 package com.ex.finalproject.Member;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,6 +18,7 @@ public class MemberController {
 		this.memService = memService;
 	}
 	
+	//회원가입
 	@RequestMapping(value="/join.do")
 	public ModelAndView addMember(MemberDTO dto){
 		ModelAndView mov = new ModelAndView("mem/Confirm");
@@ -34,7 +32,7 @@ public class MemberController {
 		System.out.println("DB 추가 완료");
 		return mov;
 	}
-	
+	// 회원 수정
 	@RequestMapping(value="/update.do")
 	public ModelAndView updateMember(MemberDTO dto){
 		ModelAndView mov = new ModelAndView("mem/Confirm");
@@ -48,6 +46,7 @@ public class MemberController {
 		System.out.println("DB 추가 완료");
 		return mov;
 	}
+	// 회원 정보 가져오기
 	@RequestMapping(value="/info.do")
 	public ModelAndView infoMember(String id){
 		ModelAndView mov = new ModelAndView("mem/info");
@@ -55,10 +54,20 @@ public class MemberController {
 		mov.addObject("dto",dto);
 		return mov;
 	}
+	// 회원 탈퇴 회원으로 상태 변경
 	@RequestMapping(value="/delete.do")
 	public ModelAndView deleteMember(String id, String pwd){
-		return null;
+		ModelAndView mov = new ModelAndView("mem/Confirm");
+		try{
+			memService.memDelete(id, pwd);
+			mov.addObject("result","true");
+		}catch(Exception e){
+			mov.addObject("result", "false");
+		}
+		System.out.println("DB 추가 완료");
+		return mov;
 	}
+	// 회원 로그인
 	@RequestMapping(value="/login.do")
 	public ModelAndView loginMember(String id, String pwd, HttpServletResponse response){
 		ModelAndView mov = new ModelAndView("mem/Confirm");

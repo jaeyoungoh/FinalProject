@@ -29,30 +29,29 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
+	// 그냥 홈임.
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
 		String formattedDate = dateFormat.format(date);
-		
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
 	}
-	
+	// 업로드 테스트
 	@RequestMapping(value="/File_Test.do")
 	public String File_Test(BoardDTO boardDto){
 
 		return "uploadimg";
 	}
 
+	// 다운로드 파일
 	@RequestMapping(value="/File_Download.do")
 	public void File_Download(HttpServletResponse response)throws Exception{
-		System.out.println("�������");
-		String filename="1.jpg";
+		System.out.println("�������");
+		String filename="123.jpg";
 
 		response.setContentType("application/octet-stream");
 		filename = new String(filename.getBytes("UTF-8"), "iso-8859-1");
