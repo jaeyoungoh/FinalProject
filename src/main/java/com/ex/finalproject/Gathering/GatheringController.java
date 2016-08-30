@@ -22,6 +22,7 @@ public class GatheringController {
 	// 그룹 추가하기
 	@RequestMapping(value="/addGathering.do")
 	public ModelAndView addGroup(GatheringDTO gathering){
+		System.out.println(gathering);
 		ModelAndView mov = new ModelAndView("gathering/Confirm");
 		try{
 			gatheringService.gatheringAdd(gathering);
@@ -47,7 +48,7 @@ public class GatheringController {
 	public ModelAndView joinGroup(String id, String Gathering_num){
 		ModelAndView mov = new ModelAndView("gathering/Confirm");
 		try{
-//			gatheringService.gatheringMemA>d(id, Gathering_num);
+//			gatheringService.gatheringMemAdd(id, Gathering_num);
 			mov.addObject("result","true");
 
 		}catch(Exception e){
