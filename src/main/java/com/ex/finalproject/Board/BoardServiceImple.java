@@ -1,6 +1,8 @@
 package com.ex.finalproject.Board;
 
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
@@ -25,7 +27,19 @@ public class BoardServiceImple implements BoardService {
 	@Override
 	public void boardUpdate(BoardDTO boardDto) {
 		BoardMapper boardMapper = sqlsession.getMapper(BoardMapper.class);
-		boardMapper.boardAdd(boardDto);
+		boardMapper.boardUpdate(boardDto);
+	}
+
+	@Override
+	public List<BoardDTO> boardList(int gathering_num) {
+		BoardMapper boardMapper = sqlsession.getMapper(BoardMapper.class);
+		return boardMapper.boardList(gathering_num);
+	}
+
+	@Override
+	public void boardDelete(int board_num) {
+		BoardMapper boardMapper = sqlsession.getMapper(BoardMapper.class);
+		boardMapper.boardDelete(board_num);
 	}
 	
 

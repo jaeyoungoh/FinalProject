@@ -21,11 +21,28 @@
     	 VALUES (#{board_num, jdbcType=INTEGER}, #{board_title, jdbcType=VARCHAR}, #{board_content, jdbcType=VARCHAR}, #{board_category, jdbcType=VARCHAR}, #{member_id, jdbcType=VARCHAR}, #{gathering_num, jdbcType=INTEGER}, #{board_date, jdbcType=DATE},#{board_picture, jdbcType=VARCHAR} )
 	</insert>
 	
-	<select id="boardList" parameterType="com.ex.finalproject.Board.BoardDTO" resultMap="BoardResultMap">
-			select * from GATHERING_BD
+	<select id="boardList" resultType="com.ex.finalproject.Board.BoardDTO"
+		resultMap="BoardResultMap" parameterType="int">
+		select gathering_bd_num,
+		gathering_bd_content, member_id, gathering_num,
+		CASE
+		WHEN TO_CHAR(gathering_bd_date, 'YYYYMMDD') = TO_CHAR(sysdate, 'YYYYMMDD')
+		THEN TO_CHAR(gathering_bd_date, 'HH24:MI')
+		ELSE
+		TO_CHAR(gathering_bd_date, 'YY/MM/DD')
+		END AS gathering_bd_date
+		from GATHERING_BD WHERE gathering_num=#{gathering_num}
+		order by gathering_bd_num desc
 	</select>
+
+	<delete id="boardDelete" parameterType="int">
+		delete from gathering_bd where
+		gathering_bd_num=#{gathering_bd_num}
+	</delete>
 	
 	<update id="boardUpdate" parameterType="com.ex.finalproject.Board.BoardDTO">
+	
+	
 	</update>
 	
 
